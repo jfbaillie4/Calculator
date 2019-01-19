@@ -53,6 +53,10 @@ body {
     font-size: 2.25em;
 }
 
+.button:active {
+    background-color: rgb(157, 211, 189);
+  }
+
 .button.orange {
     color: #FE6B0E;
 }

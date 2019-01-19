@@ -16,6 +16,7 @@ function operate (inputArray) {
             i--;
         }
     };
+    console.log(inputArray)
     for (i=0; i<inputArray.length; i++) {
         if (inputArray[i]==="*") {
             const multiple = multiply(inputArray[i-1], inputArray[i+1]);
@@ -23,6 +24,7 @@ function operate (inputArray) {
             i--;
         }
     };
+    console.log(inputArray)
     for (i=0; i<inputArray.length; i++) {
         if (inputArray[i]==="+") {
             const sum = add(inputArray[i-1], inputArray[i+1]);
@@ -30,6 +32,7 @@ function operate (inputArray) {
             i--;
         }
     };
+    console.log(inputArray)
     for (i=0; i<inputArray.length; i++) {
         if (inputArray[i]==="-") {
             const sub = subtract(inputArray[i-1], inputArray[i+1]);
@@ -37,38 +40,27 @@ function operate (inputArray) {
             i--;
         }
     };
-        /*
-        if (inputArray[i]==="+") {
-            const sum = add(inputArray[i-1], inputArray[i+1]);
-            inputArray.splice(i-1, 3, sum);
-            i--;
-        } else if (inputArray[i]==="-") {
-            const sub = subtract(inputArray[i-1], inputArray[i+1]);
-            inputArray.splice(i-1, 3, sub);
-            i--;
-        } else {
-            console.log(i);
-        };*/
+    console.log(inputArray)
     return inputArray;
 };
 
 function add (x, y) {
-	return parseInt(x) + parseInt(y);
+	return parseFloat(x) + parseFloat(y);
 };
 
 function subtract (x, y) {
-	return parseInt(x) - parseInt(y);
+	return parseFloat(x) - parseFloat(y);
 };
 
 function divide (x, y) {
-    return parseInt(x) / parseInt(y);
+    return parseFloat(x) / parseFloat(y);
 };
 
 function multiply (x, y) {
-	return parseInt(x) * parseInt(y);
+	return parseFloat(x) * parseFloat(y);
 };
 
-const integers = ["1","2","3","4","5","6","7","8","9","0"];
+const floats = ["1","2","3","4","5","6","7","8","9","0","."];
 const operators = ["+","-","*","/"]
 const displayArray = [];
 const keyRecordArray = [];
@@ -81,7 +73,7 @@ function press (e) {
     const lastvalue = displayArray[displayArray.length-1];
     const lastentry = keyRecordArray[keyRecordArray.length-1];
     keyRecordArray.push(value);
-    if (integers.includes(lastentry) && integers.includes(value)) {
+    if (floats.includes(lastentry) && floats.includes(value)) {
         const combinedvalue = lastvalue + value;
         displayArray.splice(displayArray.length-1, 1, combinedvalue);
         display.innerHTML = displayArray.join(""); 
@@ -97,4 +89,4 @@ function press (e) {
 buttons.forEach(button => button.addEventListener('click', press));
 
 
-//Question - do I need to be using the parse int or can the data- html tag pass integers
+//Question - do I need to be using the parse float or can the data- html tag pass floating point numbers?
