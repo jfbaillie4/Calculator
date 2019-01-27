@@ -1,6 +1,7 @@
 //need to use jsdom to replicate dom elements
 
-const operate = require('./calc-scripts')
+const operate = require('./calc-scripts');
+
 
 describe('calc', function() {
     it('works with a simple sum', function() {
@@ -17,5 +18,8 @@ describe('calc', function() {
     })
     it('can deal with very large floating points', function() {
         expect(operate(["5000000000000000000000000003.3", "-", "3.2"])).toEqual([5000000000000000000000000000.1])
+    })
+    it('can deal with very large negative floating points', function() {
+        expect(operate(["-5000000000000000000000000003.3", "-", "3.2"])).toEqual([-5000000000000000000000000006.5])
     })
 });

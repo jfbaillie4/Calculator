@@ -1,8 +1,6 @@
-//import {operate, add, subtract, divide, multiply} from 'calc-scripts';
-
 const floats = ["1","2","3","4","5","6","7","8","9","0","."];
-const operators = ["+","-","*","/"]
 const specials = ["Backspace", "=", "Enter"]
+//const operators = ["+","-","*","/"]
 const displayArray = [];
 const keyRecordArray = [];
 const display = document.querySelector('.screen span');

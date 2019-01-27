@@ -1,5 +1,15 @@
+const operators = ["+","-","*","/"]
+
 function operate (inputArray) {
-    for (i=0; i<inputArray.length; i++) {
+    
+    if (inputArray[0] === "-") {
+        const negative = inputArray.shift();
+        inputArray[0] = negative + inputArray[0];
+    } else if (operators.includes(inputArray[0])) {
+        inputArray.shift();
+    }
+    
+    for (i=1; i<inputArray.length; i++) {
         if (inputArray[i]==="/") {
             const division = divide(inputArray[i-1], inputArray[i+1]);
             inputArray.splice(i-1,3,division);
@@ -10,9 +20,8 @@ function operate (inputArray) {
             i--;
         };
     };
-
     //console.log(inputArray)
-    for (i=0; i<inputArray.length; i++) {
+    for (i=1; i<inputArray.length; i++) {
         //console.log(inputArray);
         if (inputArray[i]==="+") {
             const sum = add(inputArray[i-1], inputArray[i+1]);
@@ -23,6 +32,7 @@ function operate (inputArray) {
             inputArray.splice(i-1, 3, sub);
             i--;
         };
+        console.log(`Input Array: ${inputArray}`);
     };
     //console.log(inputArray)
 
@@ -30,7 +40,10 @@ function operate (inputArray) {
 };
 
 function round(value, decimals) {
-    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+    const floor = Math.floor(value);
+    const smallfloat = value - floor;
+    const smallrounded = Number(Math.round(smallfloat+'e'+decimals)+'e-'+decimals);
+    return floor + smallrounded;
   }
 
 function add (x, y) {
@@ -40,7 +53,7 @@ function add (x, y) {
 
 function subtract (x, y) {
     float = parseFloat(x) - parseFloat(y);
-    return round(float, 5);
+    return round(float, 5);  
 };
 
 function divide (x, y) {
@@ -53,5 +66,6 @@ function multiply (x, y) {
     return round(float, 5)
 };
 
-//Turn on for testing:
-module.exports = operate;  
+// Below is only to enable unit testing
+
+//module.exports = operate;  
