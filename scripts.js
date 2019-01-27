@@ -19,6 +19,10 @@ function press (input) {
     } else if (value === "=" || value === "Enter") {
         const result = operate(displayArray);
         display.innerHTML = result.join(""); 
+    } else if (input === "Backspace") {
+        lastvalstring = lastvalue.toString()
+        lastvalstring.length > 1 ? displayArray[displayArray.length-1] = lastvalstring.slice(0, -1) : displayArray.pop();
+        display.innerHTML = displayArray.join(""); 
     } else {
         displayArray.push(value);
         display.innerHTML = displayArray.join(""); 

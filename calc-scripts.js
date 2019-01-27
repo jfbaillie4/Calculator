@@ -32,7 +32,7 @@ function operate (inputArray) {
             inputArray.splice(i-1, 3, sub);
             i--;
         };
-        console.log(`Input Array: ${inputArray}`);
+        //console.log(`Input Array: ${inputArray}`);
     };
     //console.log(inputArray)
 
