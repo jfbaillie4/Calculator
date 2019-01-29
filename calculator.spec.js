@@ -22,4 +22,10 @@ describe('calc', function() {
     it('can deal with very large negative floating points', function() {
         expect(operate(["-5000000000000000000000000003.3", "-", "3.2"])).toEqual([-5000000000000000000000000006.5])
     })
+    it('can deal with brackets', function() {
+        expect(operate(["(","5","+","6",")","*","(","2","-","3",")"])).toEqual([-11])
+    })
+    it('can deal with layered brackets', function() {
+        expect(operate(["17","*","(","3","+","6","*","(","3","-","4",")","+","6",")"])).toEqual([51])
+    })
 });

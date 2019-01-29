@@ -1,6 +1,32 @@
 const operators = ["+","-","*","/"]
 
-function operate (inputArray) {
+
+function operateBrackets (inputArray) {
+    if (inputArray.indexOf("(") == -1) {
+        return operateSimple(inputArray);  
+    } else {
+        for (i=0; i<inputArray.length; i++) {
+            if (inputArray[i] === ")") {
+                const endpoint = i;
+                for (a=endpoint; a>=0 ; a--) {
+                    if (inputArray[a] === "(") {
+                        const startpoint = a;
+                        const length = endpoint-startpoint+1
+                        const subArray = inputArray.slice(startpoint+1, endpoint);
+                        const arrayl1 = operateSimple(subArray);
+                        inputArray.splice(startpoint, length, arrayl1[0]);
+                        i=startpoint;
+                        break
+                    }
+                }
+            }
+        }
+    return operateSimple(inputArray);
+    }   
+}
+
+
+function operateSimple (inputArray) {
     
     if (inputArray[0] === "-") {
         const negative = inputArray.shift();
@@ -20,9 +46,7 @@ function operate (inputArray) {
             i--;
         };
     };
-    //console.log(inputArray)
     for (i=1; i<inputArray.length; i++) {
-        //console.log(inputArray);
         if (inputArray[i]==="+") {
             const sum = add(inputArray[i-1], inputArray[i+1]);
             inputArray.splice(i-1, 3, sum);
@@ -32,9 +56,7 @@ function operate (inputArray) {
             inputArray.splice(i-1, 3, sub);
             i--;
         };
-        //console.log(`Input Array: ${inputArray}`);
     };
-    //console.log(inputArray)
 
     return inputArray;
 };
@@ -68,4 +90,4 @@ function multiply (x, y) {
 
 // Below is only to enable unit testing
 
-//module.exports = operate;  
+module.exports = operateBrackets;  

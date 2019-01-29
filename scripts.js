@@ -1,5 +1,5 @@
 const floats = ["1","2","3","4","5","6","7","8","9","0","."];
-const specials = ["Backspace", "=", "Enter"]
+const specials = ["Backspace", "=", "Enter", "c"]
 //const operators = ["+","-","*","/"]
 const displayArray = [];
 const keyRecordArray = [];
@@ -16,13 +16,17 @@ function press (input) {
         const combinedvalue = lastvalue + value;
         displayArray.splice(displayArray.length-1, 1, combinedvalue);
         display.innerHTML = displayArray.join(""); 
-    } else if (value === "=" || value === "Enter") {
-        const result = operate(displayArray);
+    } else if (value === "Enter") {
+        const result = operateBrackets(displayArray);
         display.innerHTML = result.join(""); 
     } else if (input === "Backspace") {
+        //add in condition for when diplayArray.length === 0
         lastvalstring = lastvalue.toString()
         lastvalstring.length > 1 ? displayArray[displayArray.length-1] = lastvalstring.slice(0, -1) : displayArray.pop();
         display.innerHTML = displayArray.join(""); 
+    } else if (input === "c") {
+        displayArray.length = 0;
+        display.innerHTML = displayArray.join("");
     } else {
         displayArray.push(value);
         display.innerHTML = displayArray.join(""); 
