@@ -11,7 +11,7 @@ scripts.js == DOM manipulation scripts. Event listeners to listen for keydowns a
 
 calc-scripts.js == interprets user inputs and runs all the calculations. Mostly works by building and then interpreting arrays using the correct order of operations. All results will be rounded to 5 decimal places. 
 
-calculator.spec.js == jasmine test cases for calc-scripts.js. Allows for testing of the runCalc function. Tests must provide an input array (taken from the displayArray in scripts.js) and an input key. "Enter" is the input key to test a calculation. We can also test the building of the display Array by providing keys that are integers or operators other than Enter. 
+calculator.spec.js == jasmine test cases for calc-scripts.js. Allows for testing of the runCalc function. Tests must provide an input array (representing the equation so far) and an input key (representing the next input). "Enter" is the input key to test a calculation. We can also test the building of the display Array by providing keys that are integers or operators other than Enter. 
 Hint: when the key is "Enter" the return should always be an array of length 1 containing an integers. When any other value is used as the key the return should be an array containing a series of strings. 
 
 z-archive.txt == some old versions of key functions that I was too scared to delete at the time.
