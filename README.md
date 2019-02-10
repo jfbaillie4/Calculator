@@ -1,5 +1,5 @@
 # calculator
-A javascript calculator all the logic loads on the client side for now. This was a fun project I took on based on the awesome https://www.theodinproject.com/courses/web-development-101.
+A javascript calculator. All the logic loads on the client side for now. This was a fun project I took on based on the awesome https://www.theodinproject.com/courses/web-development-101.
 
 ---------------
 
