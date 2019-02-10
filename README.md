@@ -1,6 +1,7 @@
 # calculator
 A javascript calculator all the logic loads on the client side for now. This was a fun project I took on based on the awesome https://www.theodinproject.com/courses/web-development-101.
 
+---------------
 
 Index.html == HTML page containing skeleton of calculator and links to javascript and html files. 
 
