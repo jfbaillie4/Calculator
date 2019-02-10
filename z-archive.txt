@@ -1,0 +1,37 @@
+/*
+
+old javascript press function
+
+function press (input) {
+    console.log(displayArray)
+    const value = input;
+    const lastvalue = displayArray[displayArray.length-1];
+    console.log(lastvalue);
+    if (isNaN(parseFloat(lastvalue)) === false && floats.includes(value)) {
+        const combinedvalue = lastvalue + value;
+        displayArray.splice(displayArray.length-1, 1, combinedvalue);
+        display.innerHTML = displayArray.join(""); 
+    } else if (value === "Enter") {
+        equationdisplay.innerHTML = displayArray.join("");
+        equationdisplay.style.opacity = 1;
+        const resultArray = operateBrackets(displayArray);
+        displayArray[0] = resultArray[0].toString();
+        displayArray.length = 1;
+        display.innerHTML = displayArray.join("");
+    } else if (input === "Backspace") {
+        equationdisplay.innerHTML = "";
+        equationdisplay.style.opacity = 0;
+        lastvalstring = lastvalue.toString()
+        lastvalstring.length > 1 ? displayArray[displayArray.length-1] = lastvalstring.slice(0, -1) : displayArray.pop();
+        display.innerHTML = displayArray.join(""); 
+    } else if (input === "c") {
+        displayArray.length = 0;
+        equationdisplay.innerHTML = "";
+        equationdisplay.style.opacity = 0;
+        display.innerHTML = displayArray.join("");
+    } else {
+        displayArray.push(value);
+        display.innerHTML = displayArray.join(""); 
+    }
+};
+*/

@@ -31,11 +31,23 @@ body {
 
 .screen span {
     position: relative;
-    top: 40%;
-    -moz-transform: translateY(-40%);
-    -webkit-transform: translateY(-40%);
-    transform: translateY(-40%);
+    top: 32%;
+    -moz-transform: translateY(-32%);
+    -webkit-transform: translateY(-32%);
+    transform: translateY(-32%);
     pointer-events: none;
+    display:block;
+}
+
+.screen span#equation {
+    font-size: 16px;
+    margin-bottom: 5px;
+    height:20px;
+    opacity: 0;
+   -webkit-transition: opacity 1s;
+   -moz-transition: opacity 1s;
+   -o-transition: opacity 1s;
+   transition: opacity 1s;
 }
 
 .touchpad {
@@ -70,6 +82,7 @@ body {
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     pointer-events: none;
+
 }
 
 .touchpad > * {

@@ -1,5 +1,28 @@
-const operators = ["+","-","*","/"]
+function runCalc (currentArray, key) {
+    const lastvalue = currentArray[currentArray.length-1];
+    const floats = ["1","2","3","4","5","6","7","8","9","0","."];
+    const valids = ["Backspace", "=", "Enter", "c","(",")","+","-","*","/"]
 
+    if (isNaN(parseFloat(lastvalue)) === false && floats.includes(key)) {
+        const combinedvalue = lastvalue + key;
+        currentArray.splice(currentArray.length-1, 1, combinedvalue);
+        return currentArray
+    }  else if (key === "Enter") {
+        return operateBrackets(currentArray)
+    } else if (key === "Backspace") {
+        lastvalstring = lastvalue.toString()
+        lastvalstring.length > 1 ? currentArray[currentArray.length-1] = lastvalstring.slice(0, -1) : currentArray.pop();
+        return currentArray
+    } else if (key==="c") {
+        let result = {};
+        return result
+    } else if (valids.includes(key) || floats.includes(key)) {
+        currentArray.push(key)
+        return currentArray;
+    } else {
+        return currentArray;
+    }
+};
 
 function operateBrackets (inputArray) {
     if (inputArray.indexOf("(") == -1) {
@@ -23,11 +46,11 @@ function operateBrackets (inputArray) {
         }
     return operateSimple(inputArray);
     }   
-}
-
+};
 
 function operateSimple (inputArray) {
-    
+    const operators = ["+","-","*","/"]
+
     if (inputArray[0] === "-") {
         const negative = inputArray.shift();
         inputArray[0] = negative + inputArray[0];
@@ -66,7 +89,7 @@ function round(value, decimals) {
     const smallfloat = value - floor;
     const smallrounded = Number(Math.round(smallfloat+'e'+decimals)+'e-'+decimals);
     return floor + smallrounded;
-  }
+};
 
 function add (x, y) {
     float = parseFloat(x) + parseFloat(y);
@@ -88,6 +111,5 @@ function multiply (x, y) {
     return round(float, 5)
 };
 
-// Below is only to enable unit testing
-
-module.exports = operateBrackets;  
+//Below is only to enable unit testing
+module.exports = runCalc;  
