@@ -7,7 +7,7 @@ Index.html == HTML page containing skeleton of calculator and links to javascrip
 
 styles.css == Contains the CSS (shock!). Pretty simple with a little bit of flexbox to get the keyboard working well.
 
-scripts.js == DOM manipulation scripts. Event listeners to listen for keydowns and clicks. Single "press" function that performs the DOM manipulation and calls the more functional calc-scripts.js. 
+scripts.js == DOM manipulation scripts. Event listeners to listen for keydowns and clicks. Single "press" function that performs the DOM manipulation and calls the more functional stuff from calc-scripts.js. 
 
 calc-scripts.js == interprets user inputs and runs all the calculations. Mostly works by building and then interpreting arrays using the correct order of operations. All results will be rounded to 5 decimal places. 
 
