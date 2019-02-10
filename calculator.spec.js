@@ -28,7 +28,6 @@ describe('calc', function() {
     it('can deal with layered brackets', function() {
         expect(run(["17","*","(","3","+","6","*","(","3","-","4",")","+","6",")"], "Enter")).toEqual([51])
     })
-
     it('can run on first digit', function() {
         expect(run([], "4")).toEqual(["4"])
     })
@@ -37,5 +36,14 @@ describe('calc', function() {
     })
     it('supports deletion', function () {
         expect(run(["4534","+","4534"], "Backspace")).toEqual(["4534","+","453"])
+    })
+    it('supports adding operators next to negatives', function() {
+        expect(run(["10","/","-"], "2")).toEqual(["10", "/", "-2"])
+    })
+    it('accurately calculates operators next to negatives', function() {
+        expect(run(["10","/","-2"], "Enter")).toEqual([-5])
+    })
+    it('cancels with c', function () {
+        expect(run(["4353"], "c")).toEqual([])
     })
 });

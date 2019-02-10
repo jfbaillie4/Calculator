@@ -1,20 +1,26 @@
 function runCalc (currentArray, key) {
     const lastvalue = currentArray[currentArray.length-1];
+    const twopast = currentArray[currentArray.length-2];
     const floats = ["1","2","3","4","5","6","7","8","9","0","."];
+    const opsandbracks = ["+","-","*","/","(",")"]
     const valids = ["Backspace", "=", "Enter", "c","(",")","+","-","*","/"]
 
     if (isNaN(parseFloat(lastvalue)) === false && floats.includes(key)) {
         const combinedvalue = lastvalue + key;
         currentArray.splice(currentArray.length-1, 1, combinedvalue);
         return currentArray
-    }  else if (key === "Enter") {
+    } else if (lastvalue === "-" && opsandbracks.includes(twopast) && floats.includes(key)) {
+        const combinedvalue = lastvalue + key;
+        currentArray.splice(currentArray.length-1, 1, combinedvalue);
+        return currentArray;
+    } else if (key === "Enter") {
         return operateBrackets(currentArray)
     } else if (key === "Backspace") {
         lastvalstring = lastvalue.toString()
         lastvalstring.length > 1 ? currentArray[currentArray.length-1] = lastvalstring.slice(0, -1) : currentArray.pop();
         return currentArray
-    } else if (key==="c") {
-        let result = {};
+    } else if (key==="c") { 
+        let result = [];
         return result
     } else if (valids.includes(key) || floats.includes(key)) {
         currentArray.push(key)
@@ -112,4 +118,4 @@ function multiply (x, y) {
 };
 
 //Below is only to enable unit testing
-module.exports = runCalc;  
+//module.exports = runCalc;  
